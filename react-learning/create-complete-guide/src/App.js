@@ -32,19 +32,10 @@ function App() {
 
   function addExpenseHandler(expenseData) {
     console.log("App ", expenseData);
-    expenses = [
-      ...expenses,
-      {
-      id:expenseData.id,
-      title:expenseData.title,
-      amount:expenseData.amount,
-      date: new Date(2021, 5, 12),
-      // expenseData
-  }]
-  setExpensesItem(expenses);
-    console.log("App ", expenses);
+    setExpensesItem(prevExpense =>{
+      return [expenseData,...prevExpense]
+    })
   }
-
   return (
     <div>
       <h1>Lets get Started</h1>
